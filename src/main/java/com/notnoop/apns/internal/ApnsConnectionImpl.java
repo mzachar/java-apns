@@ -209,6 +209,10 @@ public class ApnsConnectionImpl implements ApnsConnection {
                         }
                     }
                 }
+                
+                // setup timeouts
+                socket.setSoTimeout(30000); // 30s
+                socket.setSoLinger(true, 10000); //10s
 
                 if (errorDetection) {
                     monitorSocket(socket);
